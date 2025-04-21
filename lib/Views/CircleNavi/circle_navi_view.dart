@@ -8,8 +8,7 @@ class CircleNaviView extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-    Center(child: Text('🏠 Home Page', style: TextStyle(fontSize: 32))),
-          Text("data"),
+    Center(child: Text('サークルページ', style: TextStyle(fontSize: 32))),
         ],
       ),
     );
