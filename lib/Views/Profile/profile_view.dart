@@ -29,10 +29,10 @@ class _ProfileViewState extends State<ProfileView> {
             // プライバシー設定画面への遷移
             print('プライバシー設定へ遷移');
           }),
-          _buildSettingsItem(Icons.security_outlined, 'セキュリティ', () {
-            // セキュリティ設定画面への遷移
-            print('セキュリティ設定へ遷移');
-          }),
+          // _buildSettingsItem(Icons.security_outlined, 'セキュリティ', () {
+          //   // セキュリティ設定画面への遷移
+          //   print('セキュリティ設定へ遷移');
+          // }),
           _buildSettingsItem(Icons.support_outlined, 'ヘルプ', () {
             // ヘルプ画面への遷移
             print('ヘルプ画面へ遷移');
