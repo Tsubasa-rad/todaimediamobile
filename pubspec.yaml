@@ -38,9 +38,6 @@ dependencies:
   # アイコンの設定
   flutter_launcher_icons: ^0.14.3
 
-  # bottom_navigation_bar
-  convex_bottom_bar: ^3.2.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
