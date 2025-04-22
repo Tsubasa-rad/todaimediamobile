@@ -38,6 +38,9 @@ dependencies:
   # アイコンの設定
   flutter_launcher_icons: ^0.14.3
 
+# キャッシュ付きで表示するための設定
+  cached_network_image: ^3.4.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
