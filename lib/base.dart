@@ -27,20 +27,27 @@ class _BaseState extends State<Base> {
 
     return Scaffold(
       appBar: appBarWidget(), // アプリバーを表示（外部関数）
-      body: Stack(
-        children: [
-          SizedBox(
-            height: size.height - 70, // 高さを画面の高さ - 70に設定
-            child: basePages[_selectedIndex], // 現在のインデックスに応じたページを表示
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: bottomNavigationBarWidget(
-                size, _iconSize), // 下部ナビゲーションバーを表示（外部関数）
-          )
-        ],
+      body: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Stack(
+          children: [
+            SizedBox(
+              height: size.height - 70, // 高さを画面の高さ - 70に設定
+              child: basePages[_selectedIndex], // 現在のインデックスに応じたページを表示
+            ),
+            if (MediaQuery.of(context).viewInsets.bottom == 0)
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: bottomNavigationBarWidget(
+                    size, _iconSize), // 下部ナビゲーションバーを表示（外部関数）
+              )
+          ],
+        ),
       ),
     );
   }
@@ -104,12 +111,14 @@ class _BaseState extends State<Base> {
                   clipBehavior: Clip.none,
                   children: [
                     // 選択されていないときのアイコンとラベル表示
-                    GestureDetector(
-                      onTap: () => _onItemTapped(index), // タップでページ切り替え
-                      child: SizedBox(
-                        width: cardSize / 5,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 5, left: 5, right: 5, bottom: 10),
+                      child: GestureDetector(
+                        onTap: () => _onItemTapped(index), // タップでページ切り替え
+                        child: Container(
+                          width: cardSize / 5,
+                          decoration: BoxDecoration(color: white),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
